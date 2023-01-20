@@ -1,0 +1,14 @@
+{
+  "name": "package-bundle",
+  "dependencies": {
+    "package-a": "1.0.0",
+    "package-b": "1.0.0",
+    "package-c": "1.0.0",
+    "package-d": "1.0.0",
+    "package-e": "1.0.0",
+    "package-f": "1.0.0"
+  },
+  "peerDependencies": {
+    "package-g": "1.0.0"
+  }
+}

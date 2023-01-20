@@ -1,0 +1,6 @@
+{
+  "name": "package-e",
+  "peerDependencies": {
+    "package-b": "1.0.0"
+  }
+}

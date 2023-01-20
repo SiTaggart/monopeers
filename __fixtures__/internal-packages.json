@@ -1,0 +1,52 @@
+{
+  "packages": [
+    {
+      "dir": "/packages/package-a",
+      "packageJson": { "name": "package-a", "peerDependencies": { "package-b": "1.0.0" } }
+    },
+    {
+      "dir": "/packages/package-b",
+      "packageJson": { "name": "package-b", "peerDependencies": { "package-c": "1.0.0" } }
+    },
+    {
+      "dir": "/packages/package-bundle",
+      "packageJson": {
+        "dependencies": {
+          "package-a": "1.0.0",
+          "package-b": "1.0.0",
+          "package-c": "1.0.0",
+          "package-d": "1.0.0",
+          "package-e": "1.0.0",
+          "package-f": "1.0.0"
+        },
+        "name": "package-bundle",
+        "peerDependencies": {
+          "package-g": "1.0.0"
+        }
+      }
+    },
+    {
+      "dir": "/packages/package-c",
+      "packageJson": { "name": "package-c", "peerDependencies": { "package-d": "1.0.0" } }
+    },
+    {
+      "dir": "/packages/package-d",
+      "packageJson": { "name": "package-d" }
+    },
+    {
+      "dir": "/packages/package-e",
+      "packageJson": { "name": "package-e", "peerDependencies": { "package-b": "1.0.0" } }
+    },
+    {
+      "dir": "/packages/package-f",
+      "packageJson": { "name": "package-f", "peerDependencies": { "package-d": "1.0.0" } }
+    },
+    {
+      "dir": "/packages/package-g",
+      "packageJson": {
+        "name": "package-g",
+        "peerDependencies": { "package-e": "1.0.0", "package-f": "1.0.0" }
+      }
+    }
+  ]
+}

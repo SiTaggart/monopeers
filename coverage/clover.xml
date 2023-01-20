@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1674178089534" clover="3.2.0">
+  <project timestamp="1674178089534" name="All files">
+    <metrics statements="150" coveredstatements="148" conditionals="39" coveredconditionals="37" methods="14" coveredmethods="14" elements="203" coveredelements="199" complexity="0" loc="150" ncloc="150" packages="1" files="6" classes="6"/>
+    <file name="get-corrected-package-peers.ts" path="/Users/si/dev/personal/monopeers/src/get-corrected-package-peers.ts">
+      <metrics statements="50" coveredstatements="50" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+      <line num="11" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="12" count="9" type="stmt"/>
+      <line num="13" count="9" type="stmt"/>
+      <line num="14" count="9" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="66" type="stmt"/>
+      <line num="16" count="66" type="stmt"/>
+      <line num="17" count="66" type="stmt"/>
+      <line num="18" count="66" type="stmt"/>
+      <line num="19" count="66" type="stmt"/>
+      <line num="20" count="66" type="stmt"/>
+      <line num="21" count="66" type="stmt"/>
+      <line num="22" count="66" type="stmt"/>
+      <line num="23" count="66" type="stmt"/>
+      <line num="24" count="66" type="stmt"/>
+      <line num="25" count="66" type="stmt"/>
+      <line num="26" count="66" type="stmt"/>
+      <line num="27" count="66" type="stmt"/>
+      <line num="28" count="66" type="cond" truecount="1" falsecount="0"/>
+      <line num="29" count="63" type="cond" truecount="1" falsecount="0"/>
+      <line num="30" count="6" type="stmt"/>
+      <line num="31" count="66" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="57" type="stmt"/>
+      <line num="33" count="57" type="stmt"/>
+      <line num="34" count="57" type="stmt"/>
+      <line num="35" count="57" type="stmt"/>
+      <line num="36" count="57" type="stmt"/>
+      <line num="37" count="57" type="stmt"/>
+      <line num="38" count="57" type="stmt"/>
+      <line num="39" count="57" type="stmt"/>
+      <line num="40" count="57" type="stmt"/>
+      <line num="41" count="57" type="stmt"/>
+      <line num="42" count="66" type="stmt"/>
+      <line num="43" count="66" type="stmt"/>
+      <line num="44" count="66" type="cond" truecount="1" falsecount="0"/>
+      <line num="45" count="15" type="stmt"/>
+      <line num="46" count="15" type="stmt"/>
+      <line num="47" count="66" type="stmt"/>
+      <line num="48" count="3" type="stmt"/>
+      <line num="49" count="3" type="stmt"/>
+      <line num="50" count="3" type="stmt"/>
+    </file>
+    <file name="get-filtered-hoisted-package-peers.ts" path="/Users/si/dev/personal/monopeers/src/get-filtered-hoisted-package-peers.ts">
+      <metrics statements="26" coveredstatements="25" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="66" type="stmt"/>
+      <line num="11" count="66" type="stmt"/>
+      <line num="12" count="66" type="stmt"/>
+      <line num="13" count="66" type="stmt"/>
+      <line num="14" count="66" type="stmt"/>
+      <line num="15" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="66" type="stmt"/>
+      <line num="17" count="66" type="stmt"/>
+      <line num="18" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="19" count="66" type="stmt"/>
+      <line num="20" count="66" type="stmt"/>
+      <line num="21" count="66" type="stmt"/>
+      <line num="22" count="66" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="66" type="cond" truecount="1" falsecount="0"/>
+      <line num="24" count="66" type="stmt"/>
+      <line num="25" count="66" type="stmt"/>
+      <line num="26" count="66" type="stmt"/>
+    </file>
+    <file name="get-hoisted-package-peer-deps.ts" path="/Users/si/dev/personal/monopeers/src/get-hoisted-package-peer-deps.ts">
+      <metrics statements="23" coveredstatements="23" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="70" type="stmt"/>
+      <line num="5" count="70" type="stmt"/>
+      <line num="6" count="70" type="stmt"/>
+      <line num="7" count="70" type="stmt"/>
+      <line num="8" count="70" type="stmt"/>
+      <line num="9" count="70" type="cond" truecount="1" falsecount="0"/>
+      <line num="10" count="66" type="cond" truecount="1" falsecount="0"/>
+      <line num="11" count="116" type="stmt"/>
+      <line num="12" count="116" type="cond" truecount="1" falsecount="0"/>
+      <line num="13" count="101" type="cond" truecount="1" falsecount="0"/>
+      <line num="14" count="116" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="116" type="stmt"/>
+      <line num="16" count="116" type="stmt"/>
+      <line num="17" count="116" type="stmt"/>
+      <line num="18" count="116" type="stmt"/>
+      <line num="19" count="116" type="stmt"/>
+      <line num="20" count="116" type="stmt"/>
+      <line num="21" count="66" type="stmt"/>
+      <line num="22" count="70" type="stmt"/>
+      <line num="23" count="70" type="stmt"/>
+    </file>
+    <file name="get-package-peers.ts" path="/Users/si/dev/personal/monopeers/src/get-package-peers.ts">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+    </file>
+    <file name="sort-deps.ts" path="/Users/si/dev/personal/monopeers/src/sort-deps.ts">
+      <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="2" count="58" type="stmt"/>
+      <line num="3" count="58" type="cond" truecount="1" falsecount="0"/>
+      <line num="4" count="142" type="stmt"/>
+      <line num="5" count="142" type="stmt"/>
+      <line num="6" count="142" type="stmt"/>
+      <line num="7" count="142" type="stmt"/>
+      <line num="8" count="142" type="stmt"/>
+      <line num="9" count="58" type="stmt"/>
+      <line num="10" count="58" type="stmt"/>
+    </file>
+    <file name="utils.ts" path="/Users/si/dev/personal/monopeers/src/utils.ts">
+      <metrics statements="36" coveredstatements="35" conditionals="11" coveredconditionals="10" methods="4" coveredmethods="4"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="8" count="8" type="stmt"/>
+      <line num="9" count="8" type="stmt"/>
+      <line num="10" count="8" type="stmt"/>
+      <line num="11" count="8" type="cond" truecount="1" falsecount="0"/>
+      <line num="12" count="7" type="stmt"/>
+      <line num="13" count="8" type="stmt"/>
+      <line num="14" count="8" type="cond" truecount="1" falsecount="0"/>
+      <line num="15" count="8" type="cond" truecount="0" falsecount="1"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="8" type="stmt"/>
+      <line num="18" count="8" type="stmt"/>
+      <line num="19" count="8" type="stmt"/>
+      <line num="20" count="8" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="30" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="31" count="132" type="stmt"/>
+      <line num="32" count="132" type="cond" truecount="2" falsecount="0"/>
+      <line num="33" count="132" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
+    </file>
+  </project>
+</coverage>
