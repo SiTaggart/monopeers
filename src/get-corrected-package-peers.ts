@@ -29,12 +29,24 @@ export const getCorrectedPackagePeers = (packageList: PackageList): PackageList 
         (Object.keys(currentCorrectedPeers).length > 0 ||
           Object.keys(filteredHoistedPackagePeers).length > 0)
       ) {
+        const newPeerDeps = sortDeps({
+          ...currentCorrectedPeers,
+          ...filteredHoistedPackagePeers,
+        });
+        const newDevDeps = sortDeps({
+          ...currentCorrectedPeers,
+          ...filteredHoistedPackagePeers,
+          ...packageList[pkg].devDependencies,
+        });
         correctedPackageList = {
           ...correctedPackageList,
           [pkg]: {
-            peerDependencies: sortDeps({
-              ...currentCorrectedPeers,
-              ...filteredHoistedPackagePeers,
+            ...(packageList[pkg].dependencies && { dependencies: packageList[pkg].dependencies }),
+            ...(newPeerDeps && {
+              peerDependencies: { ...newPeerDeps },
+            }),
+            ...(newDevDeps && {
+              devDependencies: { ...newDevDeps },
             }),
           },
         };

@@ -11,12 +11,9 @@ export const getFilteredHoistedPackagePeers = ({
   packageList,
   pkg: packageName,
 }: GetFilteredHoistedPackagePeersArgs): Record<string, string> => {
-  const packageDeps = packageList[packageName].dependencies
-    ? Object.keys(packageList[packageName].dependencies)
-    : [];
-  const packageDevDeps = packageList[packageName].devDependencies
-    ? Object.keys(packageList[packageName].devDependencies)
-    : [];
+  const { dependencies, devDependencies } = packageList[packageName];
+  const packageDeps = dependencies ? Object.keys(dependencies) : [];
+  const packageDevDeps = devDependencies ? Object.keys(devDependencies) : [];
   const filteredHoistedPeers = Object.fromEntries(
     Object.keys(hoistedPackagePeers)
       .filter((pkg) => !packageDeps.includes(pkg) && !packageDevDeps.includes(pkg))

@@ -15,16 +15,34 @@ describe('getCorrectedPackagePeers', () => {
     ).toStrictEqual({
       'package-a': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-b': { peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' } },
-      'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-b': {
+        peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-c': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-d': { peerDependencies: {} },
       'package-e': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-f': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-f': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-g': {
         peerDependencies: {
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+        devDependencies: {
           'package-e': '1.0.0',
           'package-f': '1.0.0',
           'package-b': '1.0.0',
@@ -48,16 +66,34 @@ describe('getCorrectedPackagePeers', () => {
     ).toStrictEqual({
       'package-a': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-b': { peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' } },
-      'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-b': {
+        peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-c': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-d': { dependencies: {} },
       'package-e': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-f': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-f': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-g': {
         peerDependencies: {
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+        devDependencies: {
           'package-e': '1.0.0',
           'package-f': '1.0.0',
           'package-b': '1.0.0',
@@ -92,14 +128,25 @@ describe('getCorrectedPackagePeers', () => {
     ).toStrictEqual({
       'package-a': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-b': { peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' } },
-      'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-b': {
+        peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-c': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-d': { peerDependencies: {} },
       'package-e': {
         peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
       },
-      'package-f': { peerDependencies: { 'package-d': '1.0.0' } },
+      'package-f': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
       'package-g': {
         peerDependencies: {
           'package-e': '1.0.0',
@@ -108,9 +155,50 @@ describe('getCorrectedPackagePeers', () => {
           'package-c': '1.0.0',
           'package-d': '1.0.0',
         },
+        devDependencies: {
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
       },
       'package-bundle': {
+        dependencies: {
+          'package-a': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+        },
         peerDependencies: { 'package-g': '1.0.0' },
+        devDependencies: { 'package-g': '1.0.0' },
+      },
+    });
+  });
+  it('should add missing peers to devDeps as they are needed for local development', () => {
+    expect(
+      getCorrectedPackagePeers({
+        'package-a': { peerDependencies: { 'package-b': '1.0.0' } },
+        'package-b': {
+          peerDependencies: { 'package-c': '1.0.0' },
+          devDependencies: { 'package-f': '1.0.0' },
+        },
+        'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
+      })
+    ).toStrictEqual({
+      'package-a': {
+        peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-b': {
+        peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0', 'package-f': '1.0.0' },
+      },
+      'package-c': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
       },
     });
   });
