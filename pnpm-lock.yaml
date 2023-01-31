@@ -11,7 +11,7 @@ specifiers:
   '@types/node': 18.11.18
   '@types/yargs': 17.0.19
   chalk: 4.1.2
-  deep-object-diff: ^1.1.9
+  deep-object-diff: 1.1.9
   eslint: 8.30.0
   jest: 29.3.1
   prettier: 2.8.1
@@ -1792,8 +1792,8 @@ packages:
     resolution: {integrity: sha512-Rn+RuwkmkDwCi2/oXOFS9Gsr5lJZu/yTGpK7wAaAIE75CC+LCGEZHpY6VQJa/RoJcrmaA/docWJZvYohlNkWPA==}
     dev: false
 
-  /deepmerge/4.2.2:
-    resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==}
+  /deepmerge/4.3.0:
+    resolution: {integrity: sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -3300,7 +3300,7 @@ packages:
       babel-jest: 29.3.1_@babel+core@7.19.6
       chalk: 4.1.2
       ci-info: 3.7.0
-      deepmerge: 4.2.2
+      deepmerge: 4.3.0
       glob: 7.1.6
       graceful-fs: 4.2.10
       jest-circus: 29.3.1

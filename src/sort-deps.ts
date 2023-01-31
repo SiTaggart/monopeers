@@ -1,10 +1,10 @@
-export const sortDeps = (peerList: Record<string, string>): Record<string, string> => {
-  let sortedPeers = {};
-  for (const peer of Object.keys(peerList).sort()) {
-    sortedPeers = {
-      ...sortedPeers,
-      [`${peer}`]: peerList[peer],
+export const sortDeps = (depList: Record<string, string>): Record<string, string> => {
+  let sortedDeps = {};
+  for (const dep of Object.keys(depList).sort()) {
+    sortedDeps = {
+      ...sortedDeps,
+      [`${dep}`]: depList[dep],
     };
   }
-  return sortedPeers;
+  return sortedDeps;
 };

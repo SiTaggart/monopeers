@@ -2,6 +2,7 @@
 import * as logger from './logger';
 import { ExitError } from './errors';
 import { check } from './check';
+import { fix } from './fix';
 
 (async () => {
   const args = process.argv.slice(2);
@@ -21,6 +22,7 @@ import { check } from './check';
 
   if (args[0] === 'fix') {
     logger.info('running the fix');
+    await fix();
   }
 
   if (args[0] !== 'fix' && args[0] !== 'check') {
