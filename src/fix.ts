@@ -11,10 +11,17 @@ export const getCorrectedPackages = (
 ): Package[] => {
   const newPackages = packages.map((pkg) => {
     const newPkg = pkg;
-    newPkg.packageJson.dependencies = correctedPackageDeps[pkg.packageJson.name].dependencies;
-    newPkg.packageJson.devDependencies = correctedPackageDeps[pkg.packageJson.name].devDependencies;
-    newPkg.packageJson.peerDependencies =
-      correctedPackageDeps[pkg.packageJson.name].peerDependencies;
+    if (correctedPackageDeps[pkg.packageJson.name].dependencies) {
+      newPkg.packageJson.dependencies = correctedPackageDeps[pkg.packageJson.name].dependencies;
+    }
+    if (correctedPackageDeps[pkg.packageJson.name].devDependencies) {
+      newPkg.packageJson.devDependencies =
+        correctedPackageDeps[pkg.packageJson.name].devDependencies;
+    }
+    if (correctedPackageDeps[pkg.packageJson.name].peerDependencies) {
+      newPkg.packageJson.peerDependencies =
+        correctedPackageDeps[pkg.packageJson.name].peerDependencies;
+    }
     return newPkg;
   });
   return newPackages;

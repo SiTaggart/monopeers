@@ -202,4 +202,102 @@ describe('getCorrectedPackagePeers', () => {
       },
     });
   });
+  it('should correctly hoist peer dependencies up the tree', () => {
+    expect(
+      getCorrectedPackagePeers({
+        'package-a': { peerDependencies: { 'package-b': '1.0.0' } },
+        'package-b': { peerDependencies: { 'package-c': '1.0.0' } },
+        'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
+        'package-d': { peerDependencies: {} },
+        'package-e': { peerDependencies: { 'package-b': '1.0.0' } },
+        'package-f': { peerDependencies: { 'package-d': '1.0.0' } },
+        'package-g': { peerDependencies: { 'package-e': '1.0.0', 'package-f': '1.0.0' } },
+      })
+    ).toStrictEqual({
+      'package-a': {
+        peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-b': {
+        peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-c': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
+      'package-d': { peerDependencies: {} },
+      'package-e': {
+        peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+      },
+      'package-f': {
+        peerDependencies: { 'package-d': '1.0.0' },
+        devDependencies: { 'package-d': '1.0.0' },
+      },
+      'package-g': {
+        peerDependencies: {
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+        devDependencies: {
+          'package-e': '1.0.0',
+          'package-f': '1.0.0',
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+      },
+    });
+  });
+  it('should handle all types of deps', () => {
+    expect(
+      getCorrectedPackagePeers({
+        'package-a': { peerDependencies: { 'package-b': '1.0.0' } },
+        'package-b': { dependencies: { foo: '1.0.0' }, peerDependencies: { 'package-c': '1.0.0' } },
+        'package-c': {
+          devDependencies: { bar: '1.0.2' },
+          peerDependencies: { 'package-d': '1.0.0' },
+        },
+      })
+    ).toStrictEqual({
+      'package-a': {
+        devDependencies: {
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+        peerDependencies: {
+          'package-b': '1.0.0',
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+      },
+      'package-b': {
+        dependencies: {
+          foo: '1.0.0',
+        },
+        devDependencies: {
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+        peerDependencies: {
+          'package-c': '1.0.0',
+          'package-d': '1.0.0',
+        },
+      },
+      'package-c': {
+        devDependencies: {
+          bar: '1.0.2',
+          'package-d': '1.0.0',
+        },
+        peerDependencies: {
+          'package-d': '1.0.0',
+        },
+      },
+    });
+  });
 });

@@ -39,7 +39,11 @@
     },
     {
       "dir": "/packages/package-f",
-      "packageJson": { "name": "package-f", "peerDependencies": { "package-d": "1.0.0" } }
+      "packageJson": {
+        "name": "package-f",
+        "peerDependencies": { "package-d": "1.0.0" },
+        "devDependencies": { "package-a": "1.0.0" }
+      }
     },
     {
       "dir": "/packages/package-g",
