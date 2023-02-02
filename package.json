@@ -1,6 +1,6 @@
 {
   "name": "monopeers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "build:watch": "tsup --watch",
     "lint": "eslint . --ext .ts",
     "test": "jest",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "prepublish": "pnpm build"
   },
   "bin": {
     "monopeers": "./dist/index.js"
