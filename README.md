@@ -1,5 +1,7 @@
 # Monopeers
 
+<a href="https://www.npmjs.com/package/monopeers">![npm sheild](https://img.shields.io/npm/v/monopeers?style=for-the-badge)</a>
+
 Monopeers is a CLI tool to ensure peer dependencies within a monorepo are correctly listed and hoisted.
 
 ## Installation

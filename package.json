@@ -1,8 +1,14 @@
 {
   "name": "monopeers",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
+  "author": "Simon Taggart",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SiTaggart/monopeers.git"
+  },
+  "homepage": "https://github.com/sitaggart/monopeers",
   "scripts": {
     "build": "tsup",
     "build:watch": "tsup --watch",
@@ -18,7 +24,6 @@
     "dist"
   ],
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@manypkg/get-packages": "1.1.3",
