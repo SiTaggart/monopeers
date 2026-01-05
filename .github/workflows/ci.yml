@@ -13,29 +13,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 18
+          bun-version: 1.2.14
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9.12.2
-          run_install: false
-          cache: true
-
-      - name: pnpm version
-        run: pnpm -v
+      - name: Bun version
+        run: bun -v
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: bun install
 
       - name: Lint
-        run: pnpm lint
+        run: bun run lint
 
       - name: Prettier check
-        run: pnpm format:check
+        run: bun run format:check
 
       - name: Test
-        run: pnpm test
+        run: bun test
