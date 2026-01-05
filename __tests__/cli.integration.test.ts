@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeAll, beforeEach, afterEach } from 'bun:test';
 import { execSync, spawn } from 'node:child_process';
 import path from 'node:path';
 import fs from 'node:fs';
@@ -15,7 +16,7 @@ function runCli(
   cwd: string
 ): Promise<{ stdout: string; stderr: string; exitCode: number }> {
   return new Promise((resolve) => {
-    const child = spawn('node', [CLI_PATH, ...args], {
+    const child = spawn('bun', [CLI_PATH, ...args], {
       cwd,
       env: { ...process.env },
     });
@@ -63,7 +64,7 @@ describe('CLI Integration Tests', () => {
   beforeAll(() => {
     // Build the CLI if it doesn't exist (needed for CI)
     if (!fs.existsSync(CLI_PATH)) {
-      execSync('pnpm build', { cwd: ROOT_DIR, stdio: 'inherit' });
+      execSync('bun run build', { cwd: ROOT_DIR, stdio: 'inherit' });
     }
   });
 
@@ -162,12 +163,12 @@ describe('CLI Integration Tests', () => {
   describe('CLI binary execution', () => {
     it('should have executable shebang', () => {
       const cliContent = fs.readFileSync(CLI_PATH, 'utf8');
-      expect(cliContent.startsWith('#!/usr/bin/env node')).toBe(true);
+      expect(cliContent.startsWith('#!/usr/bin/env bun')).toBe(true);
     });
 
-    it('should be directly executable as a node script', () => {
-      // Test that the CLI can be run directly with node
-      const result = execSync(`node ${CLI_PATH} check`, {
+    it('should be directly executable as a bun script', () => {
+      // Test that the CLI can be run directly with bun
+      const result = execSync(`bun ${CLI_PATH} check`, {
         cwd: GOOD_PACKAGES,
         encoding: 'utf8',
       });

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'bun:test';
 import path from 'node:path';
 import { check } from '../src/check';
 
