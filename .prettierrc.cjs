@@ -1,3 +1,3 @@
 module.exports = {
-  ...require("@sitaggart/prettier-config"),
+  ...require('@sitaggart/prettier-config'),
 };

@@ -1,7 +1,7 @@
 import { getCorrectedPackagePeers } from '../src/get-corrected-package-peers';
 
 describe('getCorrectedPackagePeers', () => {
-  it('should correctly hoist peer dependencies up the tree', () => {
+  it('should correctly hoist peer dependencies across multiple branches', () => {
     expect(
       getCorrectedPackagePeers({
         'package-a': { peerDependencies: { 'package-b': '1.0.0' } },
