@@ -83,8 +83,14 @@ describe('utils', () => {
       const { packages } = mockPackagesData as Packages;
       const transformedPackages = transformManyPkgData(packages);
       expect(transformedPackages).toStrictEqual({
-        'package-a': { peerDependencies: { 'package-b': '1.0.0' } },
-        'package-b': { peerDependencies: { 'package-c': '1.0.0' } },
+        'package-a': {
+          devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+          peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        },
+        'package-b': {
+          devDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+          peerDependencies: { 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        },
         'package-bundle': {
           dependencies: {
             'package-a': '1.0.0',
@@ -94,20 +100,45 @@ describe('utils', () => {
             'package-e': '1.0.0',
             'package-f': '1.0.0',
           },
+          devDependencies: {
+            'package-g': '1.0.0',
+          },
           peerDependencies: {
             'package-g': '1.0.0',
           },
         },
-        'package-c': { peerDependencies: { 'package-d': '1.0.0' } },
-        'package-d': {},
-        'package-e': { peerDependencies: { 'package-b': '1.0.0' } },
-        'package-f': {
+        'package-c': {
+          devDependencies: { 'package-d': '1.0.0' },
           peerDependencies: { 'package-d': '1.0.0' },
+        },
+        'package-d': {},
+        'package-e': {
+          devDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+          peerDependencies: { 'package-b': '1.0.0', 'package-c': '1.0.0', 'package-d': '1.0.0' },
+        },
+        'package-f': {
           devDependencies: {
             'package-a': '1.0.0',
+            'package-d': '1.0.0',
+          },
+          peerDependencies: { 'package-d': '1.0.0' },
+        },
+        'package-g': {
+          devDependencies: {
+            'package-b': '1.0.0',
+            'package-c': '1.0.0',
+            'package-d': '1.0.0',
+            'package-e': '1.0.0',
+            'package-f': '1.0.0',
+          },
+          peerDependencies: {
+            'package-b': '1.0.0',
+            'package-c': '1.0.0',
+            'package-d': '1.0.0',
+            'package-e': '1.0.0',
+            'package-f': '1.0.0',
           },
         },
-        'package-g': { peerDependencies: { 'package-e': '1.0.0', 'package-f': '1.0.0' } },
       });
     });
   });
