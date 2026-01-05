@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 import * as logger from './logger';
 import { ExitError } from './errors';
 import { check } from './check';
