@@ -1,9 +1,35 @@
 {
   "extends": ["@sitaggart/eslint-config-ts"],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json",
+    "tsconfigRootDir": "./"
+  },
+  "env": {
+    "node": true
+  },
+  "globals": {
+    "afterAll": "readonly",
+    "afterEach": "readonly",
+    "beforeAll": "readonly",
+    "beforeEach": "readonly",
+    "describe": "readonly",
+    "expect": "readonly",
+    "it": "readonly",
+    "test": "readonly"
+  },
   "rules": {
     "no-restricted-syntax": 0,
     "unicorn/prefer-module": 0,
     "unicorn/prefer-top-level-await": 0,
-    "@typescript-eslint/consistent-type-imports": "error"
-  }
+    "@typescript-eslint/consistent-type-imports": "error",
+    "jest/*": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/logger.ts", "src/write-to-file.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }
