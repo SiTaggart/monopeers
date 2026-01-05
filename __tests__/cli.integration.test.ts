@@ -57,7 +57,16 @@ function cleanupFixture(tempDir: string): void {
   fs.rmSync(tempDir, { recursive: true, force: true });
 }
 
+const ROOT_DIR = path.join(__dirname, '..');
+
 describe('CLI Integration Tests', () => {
+  beforeAll(() => {
+    // Build the CLI if it doesn't exist (needed for CI)
+    if (!fs.existsSync(CLI_PATH)) {
+      execSync('pnpm build', { cwd: ROOT_DIR, stdio: 'inherit' });
+    }
+  });
+
   describe('monopeers check', () => {
     it('should have the CLI built', () => {
       expect(fs.existsSync(CLI_PATH)).toBe(true);
