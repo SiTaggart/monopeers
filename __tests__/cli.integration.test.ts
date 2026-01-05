@@ -6,15 +6,21 @@ import path from 'node:path';
 const repoRoot = path.resolve(__dirname, '..');
 const distEntry = path.join(repoRoot, 'dist', 'index.js');
 
-const runCli = (args: string[], cwd = repoRoot) => {
+type RunResult = {
+  stderr: string;
+  status: number | undefined;
+  stdout: string;
+};
+
+const runCli = (args: string[], cwd = repoRoot): RunResult => {
   const result = spawnSync('node', [distEntry, ...args], {
     cwd,
-    encoding: 'utf-8',
+    encoding: 'utf8',
   });
   return {
     stdout: result.stdout ?? '',
     stderr: result.stderr ?? '',
-    status: result.status ?? null,
+    status: result.status ?? undefined,
   };
 };
 
@@ -69,15 +75,17 @@ describe('monopeers CLI (integration)', () => {
       'package-bundle',
     ];
 
-    for (const pkg of packages) {
-      const actual = JSON.parse(
-        await readFile(path.join(workspace, 'packages', pkg, 'package.json'), 'utf-8')
-      );
-      const expected = JSON.parse(
-        await readFile(path.join(expectedWorkspace, 'packages', pkg, 'package.json'), 'utf-8')
-      );
+    await Promise.all(
+      packages.map(async (pkg) => {
+        const actual = JSON.parse(
+          await readFile(path.join(workspace, 'packages', pkg, 'package.json'), 'utf8')
+        );
+        const expected = JSON.parse(
+          await readFile(path.join(expectedWorkspace, 'packages', pkg, 'package.json'), 'utf8')
+        );
 
-      expect(actual).toEqual(expected);
-    }
+        expect(actual).toEqual(expected);
+      })
+    );
   });
 });
