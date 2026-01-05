@@ -5,5 +5,21 @@
     "unicorn/prefer-module": 0,
     "unicorn/prefer-top-level-await": 0,
     "@typescript-eslint/consistent-type-imports": "error"
+  },
+  "overrides": [
+    {
+      "files": ["__tests__/**/*.ts"],
+      "rules": {
+        "jest/no-deprecated-functions": "off",
+        "jest/expect-expect": "off",
+        "jest/valid-title": "off",
+        "jest/no-conditional-expect": "off"
+      }
+    }
+  ],
+  "settings": {
+    "jest": {
+      "version": 29
+    }
   }
 }

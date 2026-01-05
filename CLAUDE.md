@@ -5,14 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Development Commands
 
 ```bash
-pnpm install          # Install dependencies (pnpm required, enforced via preinstall)
-pnpm build            # Build CLI to dist/index.js
-pnpm build:watch      # Build in watch mode during development
-pnpm lint             # Run ESLint
-pnpm format:check     # Check Prettier formatting
-pnpm test             # Run all tests
-pnpm test -- --watch  # Run tests in watch mode
-pnpm test -- __tests__/check.test.ts  # Run a single test file
+bun install           # Install dependencies
+bun run build         # Build CLI to dist/index.js
+bun run build:watch   # Build in watch mode during development
+bun run lint          # Run ESLint
+bun run format:check  # Check Prettier formatting
+bun run typecheck     # Run TypeScript type checking
+bun test              # Run all tests
+bun test --watch      # Run tests in watch mode
+bun test __tests__/check.test.ts  # Run a single test file
 ```
 
 ## Architecture

@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'bun:test';
 import type { Packages } from '@manypkg/get-packages';
 import mockPackagesData from '../__fixtures__/internal-packages.json';
 import { getCorrectedPackages } from '../src/fix';

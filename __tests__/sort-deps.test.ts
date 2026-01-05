@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'bun:test';
 import { sortDeps } from '../src/sort-deps';
 
 describe('sortDeps', () => {

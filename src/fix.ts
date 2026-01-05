@@ -10,7 +10,10 @@ export const getCorrectedPackages = (
   correctedPackageDeps: PackageList
 ): Package[] => {
   const newPackages = packages.map((pkg) => {
-    const newPkg = pkg;
+    const newPkg = {
+      ...pkg,
+      packageJson: { ...pkg.packageJson },
+    };
     if (correctedPackageDeps[pkg.packageJson.name].dependencies) {
       newPkg.packageJson.dependencies = correctedPackageDeps[pkg.packageJson.name].dependencies;
     }
