@@ -5,7 +5,7 @@ This repository contains the **monopeers** CLI that audits monorepos for correct
 ## Tech stack
 
 - Node.js CLI written in TypeScript.
-- Build: `tsc` outputs `dist/index.js`.
+- Build: `bun build ./src/index.ts --target bun --outdir dist` emits `dist/index.js`.
 - Package manager/runtime: **Bun**.
 - Testing: Bun's built-in runner (`bun test`).
 - Linting/formatting: ESLint + Prettier via shared `@sitaggart/*` configs.
@@ -38,7 +38,7 @@ This repository contains the **monopeers** CLI that audits monorepos for correct
 
 ## Contribution tips
 
-- Keep new logic covered with Jest; prefer adding targeted fixtures under `__fixtures__` rather than ad-hoc mocks.
+- Keep new logic covered with Bun's `bun test`; prefer adding targeted fixtures under `__fixtures__` rather than ad-hoc mocks.
 - When touching dependency calculation, update both `check` and `fix` paths so results stay consistent.
 - Preserve JSON ordering using the existing `sort-deps` utilities to minimize churn in manifest files.
-- Include any new scripts or config in the root `package.json` and ensure builds still succeed with `tsup`.
+- Include any new scripts or config in the root `package.json` and ensure builds still succeed with `bun run build`.

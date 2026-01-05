@@ -10,8 +10,9 @@
   },
   "homepage": "https://github.com/sitaggart/monopeers",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "bun build ./src/index.ts --outdir dist --target bun",
+    "build:watch": "bun build ./src/index.ts --outdir dist --target bun --watch",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "format:check": "prettier --check .",
     "test": "bun test",

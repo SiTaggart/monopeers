@@ -9,11 +9,17 @@ Monopeers is a CLI tool to ensure peer dependencies within a monorepo are correc
 This repository now uses [Bun](https://bun.sh/) for dependency management, scripting, and testing.
 
 - Install dependencies: `bun install`
-- Build the CLI bundle and type declarations: `bun run build`
+- Build the CLI bundle with Bun's bundler: `bun run build`
+- Type-check without emitting files: `bun run typecheck`
 - Run the test suite: `bun test`
 - Lint and format checks: `bun run lint` and `bun run format:check`
 
-Bun drives TypeScript compilation through `tsc`, so no additional bundlers (like tsup) are required.
+Bun's native bundler builds the CLI for the Bun runtime; `tsc` is only used for `typecheck` during development.
+
+### About single-file executables
+
+Bun can emit single-file executables via `bun build --compile`, but using that here would change the published artifact from a
+JavaScript bundle to a binary. To avoid surprising consumers, the build remains a Bun-targeted JS bundle in `dist/index.js`.
 
 ## Installation
 
