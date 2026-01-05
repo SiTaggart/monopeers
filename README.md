@@ -4,6 +4,17 @@
 
 Monopeers is a CLI tool to ensure peer dependencies within a monorepo are correctly listed and hoisted.
 
+## Development with Bun
+
+This repository now uses [Bun](https://bun.sh/) for dependency management, scripting, and testing.
+
+- Install dependencies: `bun install`
+- Build the CLI bundle and type declarations: `bun run build`
+- Run the test suite: `bun test`
+- Lint and format checks: `bun run lint` and `bun run format:check`
+
+Bun drives TypeScript compilation through `tsc`, so no additional bundlers (like tsup) are required.
+
 ## Installation
 
 To install add the `monopeers` package to your monorepo root, where it will run from.

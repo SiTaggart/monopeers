@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'bun:test';
 import { getCorrectedPackagePeers } from '../src/get-corrected-package-peers';
 
 describe('getCorrectedPackagePeers', () => {

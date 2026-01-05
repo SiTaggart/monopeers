@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'bun:test';
 import { getHoistedPackagePeerDeps } from '../src/get-hoisted-package-peer-deps';
 
 describe('getHoistedPackagePeerDeps', () => {

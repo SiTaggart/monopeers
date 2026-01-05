@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'bun:test';
 import path from 'node:path';
 import type { Packages } from '@manypkg/get-packages';
 import { transformManyPkgData, getInternalPackageNames, getInternalPackages } from '../src/utils';
