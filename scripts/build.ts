@@ -24,4 +24,4 @@ if (!result.success) {
 }
 
 // Type declarations
-await $`tsc --emitDeclarationOnly --declaration --outDir ${DIST}`;
+await $`tsc -p tsconfig.build.json --emitDeclarationOnly --outDir ${DIST}`;
