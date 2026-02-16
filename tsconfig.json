@@ -100,10 +100,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["**/*", "prettierrc.cjs"],
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "experimentalResolver": true
-  }
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

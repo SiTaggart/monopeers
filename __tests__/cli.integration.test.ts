@@ -63,7 +63,7 @@ describe('CLI Integration Tests', () => {
   beforeAll(() => {
     // Build the CLI if it doesn't exist (needed for CI)
     if (!fs.existsSync(CLI_PATH)) {
-      execSync('pnpm build', { cwd: ROOT_DIR, stdio: 'inherit' });
+      execSync('bun run build', { cwd: ROOT_DIR, stdio: 'inherit' });
     }
   });
 
