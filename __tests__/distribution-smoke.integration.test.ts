@@ -1,3 +1,4 @@
+import { afterAll, beforeAll, describe, expect, it, setDefaultTimeout } from 'bun:test';
 import { execFileSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -52,7 +53,7 @@ function copyFixture(fixtureName: string): string {
 }
 
 describe('Distribution Smoke Integration', () => {
-  jest.setTimeout(180_000);
+  setDefaultTimeout(180_000);
 
   const cleanupDirs: string[] = [];
 
@@ -69,8 +70,8 @@ describe('Distribution Smoke Integration', () => {
     consumerDir = createTempDir('monopeers-consumer-');
     cleanupDirs.push(packDir, consumerDir);
 
-    execFileSync('pnpm', ['build'], { cwd: ROOT_DIR, stdio: 'pipe' });
-    execFileSync('pnpm', ['pack', '--pack-destination', packDir], {
+    execFileSync('bun', ['run', 'build'], { cwd: ROOT_DIR, stdio: 'pipe' });
+    execFileSync('bun', ['pm', 'pack', '--destination', packDir], {
       cwd: ROOT_DIR,
       stdio: 'pipe',
     });
@@ -94,7 +95,7 @@ describe('Distribution Smoke Integration', () => {
       )
     );
 
-    execFileSync('pnpm', ['add', tarballPath], {
+    execFileSync('bun', ['add', tarballPath], {
       cwd: consumerDir,
       stdio: 'pipe',
     });

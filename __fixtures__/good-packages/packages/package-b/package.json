@@ -1,10 +1,10 @@
 {
   "name": "package-b",
-  "peerDependencies": {
+  "devDependencies": {
     "package-c": "1.0.0",
     "package-d": "1.0.0"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "package-c": "1.0.0",
     "package-d": "1.0.0"
   }

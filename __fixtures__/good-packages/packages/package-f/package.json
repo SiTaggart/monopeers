@@ -1,9 +1,9 @@
 {
   "name": "package-f",
-  "peerDependencies": {
+  "devDependencies": {
     "package-d": "1.0.0"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "package-d": "1.0.0"
   }
 }

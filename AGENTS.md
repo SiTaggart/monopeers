@@ -5,10 +5,11 @@ This repository contains the **monopeers** CLI that audits monorepos for correct
 ## Tech stack
 
 - Node.js CLI written in TypeScript.
-- Build: `tsup` outputs `dist/index.js` (see `tsup.config.ts`).
-- Package manager: **pnpm** (enforced via `preinstall`).
-- Testing: Jest with SWC (`__tests__/**/*.test.ts`).
-- Linting/formatting: ESLint + Prettier via shared `@sitaggart/*` configs.
+- Build: `Bun.build()` via `scripts/build.ts` outputs `dist/index.js`.
+- Package manager: **Bun**.
+- Testing: Bun's built-in test runner (`__tests__/**/*.test.ts`).
+- Linting: oxlint.
+- Formatting: oxfmt.
 
 ## Project structure and behavior
 
@@ -29,16 +30,16 @@ This repository contains the **monopeers** CLI that audits monorepos for correct
 
 ## Usage
 
-- Install dependencies with `pnpm install` (other managers are blocked).
-- Build the CLI: `pnpm build` or `pnpm build:watch` during development.
-- Run checks in CI: `pnpm lint` and `pnpm test`.
+- Install dependencies with `bun install`.
+- Build the CLI: `bun run build` or `bun run build:watch` during development.
+- Run checks in CI: `bun run lint` and `bun test`.
 - Invoke the tool from a monorepo root:
-  - `pnpm monopeers check` to fail on missing/incorrect peer dependencies.
-  - `pnpm monopeers fix` to apply hoisted peer/dev dependency updates to `package.json` files.
+  - `bun monopeers check` to fail on missing/incorrect peer dependencies.
+  - `bun monopeers fix` to apply hoisted peer/dev dependency updates to `package.json` files.
 
 ## Contribution tips
 
-- Keep new logic covered with Jest; prefer adding targeted fixtures under `__fixtures__` rather than ad-hoc mocks.
+- Keep new logic covered with tests; prefer adding targeted fixtures under `__fixtures__` rather than ad-hoc mocks.
 - When touching dependency calculation, update both `check` and `fix` paths so results stay consistent.
 - Preserve JSON ordering using the existing `sort-deps` utilities to minimize churn in manifest files.
-- Include any new scripts or config in the root `package.json` and ensure builds still succeed with `tsup`.
+- Include any new scripts or config in the root `package.json` and ensure builds still succeed.

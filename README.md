@@ -20,6 +20,10 @@ yarn add monopeers
 pnpm add monopeers
 ```
 
+```bash
+bun add monopeers
+```
+
 ## Commands
 
 Monopeers comes with two commands, `check` and `fix`.

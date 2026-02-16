@@ -6,7 +6,7 @@ import { getCorrectedPackagePeers } from '../src/get-corrected-package-peers';
 
 describe('getCorrectedPackages()', () => {
   it('should run a check and find errors', async () => {
-    const { packages } = mockPackagesData as Packages;
+    const { packages } = structuredClone(mockPackagesData) as Packages;
 
     const packageList = transformManyPkgData(packages);
     const correctedPackageList = getCorrectedPackagePeers(packageList);

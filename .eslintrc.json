@@ -1,9 +1,0 @@
-{
-  "extends": ["@sitaggart/eslint-config-ts"],
-  "rules": {
-    "no-restricted-syntax": 0,
-    "unicorn/prefer-module": 0,
-    "unicorn/prefer-top-level-await": 0,
-    "@typescript-eslint/consistent-type-imports": "error"
-  }
-}
