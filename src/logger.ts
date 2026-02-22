@@ -8,8 +8,8 @@ export const format = (
 ): string => {
   const prefix = {
     error: chalk.red('error'),
-    success: chalk.green('success'),
     info: chalk.cyan('info'),
+    success: chalk.green('success'),
   }[messageType];
   const fullPrefix = ` ${prefix}${scope === undefined ? '' : ` ${scope}`}`;
   return (
@@ -21,13 +21,16 @@ export const format = (
   );
 };
 export const error = (message: string, scope?: string): void => {
+  // eslint-disable-next-line no-console
   console.error(format([message], 'error', scope));
 };
 
 export const success = (message: string, scope?: string): void => {
+  // eslint-disable-next-line no-console
   console.log(format([message], 'success', scope));
 };
 
 export const info = (message: string, scope?: string): void => {
+  // eslint-disable-next-line no-console
   console.log(format([message], 'info', scope));
 };

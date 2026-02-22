@@ -11,9 +11,9 @@ const BAD_PACKAGES = path.join(FIXTURES_PATH, 'bad-packages');
  * Helper to run the CLI and capture output/exit code
  */
 function runCli(
-  args: string[],
+  args: Array<string>,
   cwd: string
-): Promise<{ stdout: string; stderr: string; exitCode: number }> {
+): Promise<{ exitCode: number; stderr: string; stdout: string }> {
   return new Promise((resolve) => {
     const child = spawn('node', [CLI_PATH, ...args], {
       cwd,
@@ -32,7 +32,7 @@ function runCli(
     });
 
     child.on('close', (code) => {
-      resolve({ stdout, stderr, exitCode: code ?? 0 });
+      resolve({ exitCode: code ?? 0, stderr, stdout });
     });
   });
 }
@@ -54,7 +54,7 @@ function copyFixture(fixtureName: string): string {
  * Helper to clean up temporary fixtures
  */
 function cleanupFixture(tempDir: string): void {
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  fs.rmSync(tempDir, { force: true, recursive: true });
 }
 
 const ROOT_DIR = path.join(__dirname, '..');

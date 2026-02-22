@@ -6,9 +6,9 @@ import { getInternalPackages, transformManyPkgData } from './utils';
 import { writeToFile } from './write-to-file';
 
 export const getCorrectedPackages = (
-  packages: Package[],
+  packages: Array<Package>,
   correctedPackageDeps: PackageList
-): Package[] => {
+): Array<Package> => {
   const newPackages = packages.map((pkg) => {
     const newPkg = pkg;
     if (correctedPackageDeps[pkg.packageJson.name].dependencies) {
@@ -27,12 +27,12 @@ export const getCorrectedPackages = (
   return newPackages;
 };
 
-export const writeCorrectedPackageJsons = (packages: Package[]): void => {
+export const writeCorrectedPackageJsons = (packages: Array<Package>): void => {
   for (const pkg of packages) {
     writeToFile(`${pkg.dir}/package.json`, pkg.packageJson, {
-      successMessage: `Successfully rewrote the package.json file for ${pkg.packageJson.name}`,
       errorMessage: `Failed to rewrite the package.json file for ${pkg.packageJson.name}`,
       formatJson: true,
+      successMessage: `Successfully rewrote the package.json file for ${pkg.packageJson.name}`,
     });
   }
 };

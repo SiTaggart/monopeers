@@ -5,9 +5,9 @@ import os from 'node:os';
 import path from 'node:path';
 
 type CommandResult = {
-  stdout: string;
-  stderr: string;
   exitCode: number;
+  stderr: string;
+  stdout: string;
 };
 
 const ROOT_DIR = path.join(__dirname, '..');
@@ -17,7 +17,7 @@ const BAD_PACKAGES = path.join(FIXTURES_PATH, 'bad-packages');
 
 const binaryName = process.platform === 'win32' ? 'monopeers.cmd' : 'monopeers';
 
-function runCommand(command: string, args: string[], cwd: string): Promise<CommandResult> {
+function runCommand(command: string, args: Array<string>, cwd: string): Promise<CommandResult> {
   return new Promise((resolve) => {
     const child = spawn(command, args, {
       cwd,
@@ -36,7 +36,7 @@ function runCommand(command: string, args: string[], cwd: string): Promise<Comma
     });
 
     child.on('close', (code) => {
-      resolve({ stdout, stderr, exitCode: code ?? 0 });
+      resolve({ exitCode: code ?? 0, stderr, stdout });
     });
   });
 }
@@ -55,13 +55,13 @@ function copyFixture(fixtureName: string): string {
 describe('Distribution Smoke Integration', () => {
   setDefaultTimeout(180_000);
 
-  const cleanupDirs: string[] = [];
+  const cleanupDirs: Array<string> = [];
 
   let packDir = '';
   let consumerDir = '';
   let tarballPath = '';
   let installedBinaryPath = '';
-  let tarContents: string[] = [];
+  let tarContents: Array<string> = [];
   let hasInstalledBinary = false;
   let usesConsumerInstallBinary = false;
 
@@ -106,7 +106,7 @@ describe('Distribution Smoke Integration', () => {
   });
 
   afterAll(() => {
-    cleanupDirs.map((dirPath) => fs.rmSync(dirPath, { recursive: true, force: true }));
+    cleanupDirs.map((dirPath) => fs.rmSync(dirPath, { force: true, recursive: true }));
   });
 
   it('validates packed tarball contents and installed binary location', () => {

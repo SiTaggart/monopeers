@@ -101,10 +101,10 @@ describe('utils', () => {
         'package-d': {},
         'package-e': { peerDependencies: { 'package-b': '1.0.0' } },
         'package-f': {
-          peerDependencies: { 'package-d': '1.0.0' },
           devDependencies: {
             'package-a': '1.0.0',
           },
+          peerDependencies: { 'package-d': '1.0.0' },
         },
         'package-g': { peerDependencies: { 'package-e': '1.0.0', 'package-f': '1.0.0' } },
       });
