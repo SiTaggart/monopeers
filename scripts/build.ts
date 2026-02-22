@@ -10,7 +10,7 @@ await rm(DIST, { force: true, recursive: true });
 // Bundle
 const result = await Bun.build({
   entrypoints: [ENTRY],
-  format: 'cjs',
+  format: 'esm',
   outdir: DIST,
   packages: 'external',
   target: 'node',
