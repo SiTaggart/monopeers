@@ -1,14 +1,14 @@
 import { writeFile } from 'node:fs';
-import * as logger from './logger';
+import { error as logError, success as logSuccess } from './logger';
 
 export const writeToFile = (
   filePath: string,
   content: string | object | Array<unknown>,
   {
-    successMessage,
     errorMessage,
     formatJson = false,
-  }: { successMessage?: string; errorMessage?: string; formatJson?: boolean }
+    successMessage,
+  }: { errorMessage?: string; formatJson?: boolean; successMessage?: string }
 ): void => {
   const output: string | NodeJS.ArrayBufferView = formatJson
     ? JSON.stringify(content, undefined, 2)
@@ -17,12 +17,13 @@ export const writeToFile = (
   writeFile(filePath, output, 'utf8', (error) => {
     if (error) {
       if (errorMessage !== undefined) {
-        logger.error(errorMessage);
+        logError(errorMessage);
       }
+      // eslint-disable-next-line no-console
       console.error(error);
     }
     if (successMessage !== undefined && error === null) {
-      logger.success(successMessage);
+      logSuccess(successMessage);
     }
   });
 };

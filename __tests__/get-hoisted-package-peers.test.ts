@@ -31,7 +31,7 @@ describe('getHoistedPackagePeerDeps', () => {
         },
         'a'
       )
-    ).toStrictEqual({ b: '1.0', c: '1.0', d: '1.0', g: '1.0', external: '1' });
+    ).toStrictEqual({ b: '1.0', c: '1.0', d: '1.0', external: '1', g: '1.0' });
     expect(
       getHoistedPackagePeerDeps(
         {

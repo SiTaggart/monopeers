@@ -66,7 +66,7 @@ describe('getCorrectedPackages()', () => {
       {
         dir: '/packages/package-f',
         packageJson: {
-          devDependencies: { 'package-d': '1.0.0', 'package-a': '1.0.0' },
+          devDependencies: { 'package-a': '1.0.0', 'package-d': '1.0.0' },
           name: 'package-f',
           peerDependencies: { 'package-d': '1.0.0' },
         },

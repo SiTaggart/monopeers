@@ -51,7 +51,7 @@ describe('getFilteredHoistedPackagePeers', () => {
         },
         pkg: 'bbbb',
       })
-    ).toStrictEqual({ b: '1', a: '1' });
+    ).toStrictEqual({ a: '1', b: '1' });
   });
 
   it('should return original hoisted package peers object if there are no matching packages', () => {

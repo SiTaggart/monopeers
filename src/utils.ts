@@ -2,7 +2,7 @@ import { getPackages } from '@manypkg/get-packages';
 import type { Package } from '@manypkg/get-packages';
 import type { PackageList } from './types';
 
-export const transformManyPkgData = (packages: Package[]): PackageList => {
+export const transformManyPkgData = (packages: Array<Package>): PackageList => {
   let result = {};
   for (const pkg of packages) {
     result = {
@@ -22,7 +22,7 @@ export const transformManyPkgData = (packages: Package[]): PackageList => {
   return result;
 };
 
-export const getInternalPackages = async (path: string): Promise<Package[]> => {
+export const getInternalPackages = async (path: string): Promise<Array<Package>> => {
   const { packages } = await getPackages(path);
   return packages;
 };
@@ -32,5 +32,5 @@ export const getNumberOfPeersByPackage = (pkgs: PackageList, pkg: string): numbe
   return typeof peerDependencies === 'object' ? Object.keys(peerDependencies).length : 0;
 };
 
-export const getInternalPackageNames = (packages: Package[]): string[] =>
+export const getInternalPackageNames = (packages: Array<Package>): Array<string> =>
   packages.map((pkg) => pkg.packageJson.name);
